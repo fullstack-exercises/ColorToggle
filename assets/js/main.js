@@ -11,8 +11,8 @@ const mainTitle = document.querySelector('.main-title');
 
 // Toggle 
 const toggle = () => {
-    toggleButton.classList.toggle('is-active');
-    toggleNavbar.classList.toggle('is-active');
+    toggleButton.classList.add('is-active');
+    toggleNavbar.classList.add('is-active');
 
     setTimeout(function() {
         if (toggleNavbar.classList.contains('is-active')) { // class is is-active add another class
@@ -24,7 +24,18 @@ const toggle = () => {
     }, delayInMilliseconds);
 
 }
-toggleButton.addEventListener('click', toggle);
+toggleButton.addEventListener('mouseover', toggle);
+
+// Close menu when mouse is off menu
+document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('.navbar') || e.target.closest('#toggle')) {
+        return;
+    } else {
+        toggleNavbar.classList.add('hide');
+        toggleNavbar.classList.remove('is-active');
+        toggleButton.classList.remove('is-active');
+    }
+});
 
 // Change colors on button click
 const changeBackgroundColorToPurple = () => {
