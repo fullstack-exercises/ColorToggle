@@ -14,21 +14,34 @@ body.is-blue {
   background-color: #a0c4ff;
 }
 
-body.is-pink {
-  background-color: #ffc6ff;
+body.is-green {
+  background-color: #caffbf;
 }
 
 a {
   text-decoration: none;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 li {
   list-style: none;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90vh;
+}
+
+h1 {
+  font-size: 40px;
+  text-transform: uppercase;
 }
 
 #toggle {
@@ -71,15 +84,18 @@ li {
   background-color: #ffffff;
   width: 150px;
   height: 100%;
-  padding: 15px;
+  padding: 30px 15px;
   position: absolute;
   right: -180px;
   top: 0;
   line-height: 1.6;
-  text-align: center;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   display: none;
+}
+
+.navbar p {
+  color: #000000;
 }
 
 .navbar ul {
@@ -91,6 +107,88 @@ li {
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 300;
+  position: relative;
+}
+
+.navbar ul li a.color-purple:hover {
+  color: #bdb2ff;
+}
+
+.navbar ul li a.color-purple::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #bdb2ff;
+  position: absolute;
+  border-radius: 100%;
+  left: -35px;
+  top: 1px;
+}
+
+.navbar ul li a.color-purple::after {
+  content: "P";
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  right: -60px;
+  top: 1px;
+  border: 1px solid #000000;
+}
+
+.navbar ul li a.color-blue:hover {
+  color: #a0c4ff;
+}
+
+.navbar ul li a.color-blue::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #a0c4ff;
+  position: absolute;
+  border-radius: 100%;
+  left: -35px;
+  top: 1px;
+}
+
+.navbar ul li a.color-blue::after {
+  content: "B";
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  right: -76px;
+  top: 1px;
+  border: 1px solid #000000;
+}
+
+.navbar ul li a.color-green:hover {
+  color: #caffbf;
+}
+
+.navbar ul li a.color-green::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #caffbf;
+  position: absolute;
+  border-radius: 100%;
+  left: -35px;
+  top: 1px;
+}
+
+.navbar ul li a.color-green::after {
+  content: "G";
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  right: -60px;
+  top: 1px;
+  border: 1px solid #000000;
 }
 
 .navbar.is-active {

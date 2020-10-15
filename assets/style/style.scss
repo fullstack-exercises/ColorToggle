@@ -2,6 +2,18 @@
 @import "global";
 @import "reset";
 @import "fonts";
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
 #toggle {
     width: 28px;
     height: 30px;
@@ -36,14 +48,16 @@
     background-color: $color-white;
     width: 150px;
     height: 100%;
-    padding: $space;
+    padding: $space-l $space;
     position: absolute;
     right: -180px;
     top: 0;
     line-height: 1.6;
-    text-align: center;
     transition: all 0.3s ease-in-out;
     display: none;
+    p {
+        color: $color-black;
+    }
     ul {
         margin-top: $space-l;
         li {
@@ -52,6 +66,85 @@
                 font-size: 20px;
                 text-transform: uppercase;
                 font-weight: 300;
+                position: relative;
+                &.color-purple {
+                    &:hover {
+                        color: $color-purple;
+                    }
+                    &::before {
+                        content: "";
+                        width: 20px;
+                        height: 20px;
+                        background-color: $color-purple;
+                        position: absolute;
+                        border-radius: 100%;
+                        left: -35px;
+                        top: 1px;
+                    }
+                    &::after {
+                        content: "P";
+                        width: 20px;
+                        height: 20px;
+                        font-size: 14px;
+                        position: absolute;
+                        text-align: center;
+                        right: -60px;
+                        top: 1px;
+                        border: 1px solid $color-black;
+                    }
+                }
+                &.color-blue {
+                    &:hover {
+                        color: $color-blue;
+                    }
+                    &::before {
+                        content: "";
+                        width: 20px;
+                        height: 20px;
+                        background-color: $color-blue;
+                        position: absolute;
+                        border-radius: 100%;
+                        left: -35px;
+                        top: 1px;
+                    }
+                    &::after {
+                        content: "B";
+                        width: 20px;
+                        height: 20px;
+                        font-size: 14px;
+                        position: absolute;
+                        text-align: center;
+                        right: -76px;
+                        top: 1px;
+                        border: 1px solid $color-black;
+                    }
+                }
+                &.color-green {
+                    &:hover {
+                        color: $color-green;
+                    }
+                    &::before {
+                        content: "";
+                        width: 20px;
+                        height: 20px;
+                        background-color: $color-green;
+                        position: absolute;
+                        border-radius: 100%;
+                        left: -35px;
+                        top: 1px;
+                    }
+                    &::after {
+                        content: "G";
+                        width: 20px;
+                        height: 20px;
+                        font-size: 14px;
+                        position: absolute;
+                        text-align: center;
+                        right: -60px;
+                        top: 1px;
+                        border: 1px solid $color-black;
+                    }
+                }
             }
         }
     }

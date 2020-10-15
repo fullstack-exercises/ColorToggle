@@ -4,8 +4,9 @@ const toggleButton = document.querySelector('#toggle');
 const toggleNavbar = document.querySelector('.navbar');
 const buttonToPurple = document.querySelector('.color-purple');
 const buttonToBlue = document.querySelector('.color-blue');
-const buttonToPink = document.querySelector('.color-pink');
+const buttonToGreen = document.querySelector('.color-green');
 const delayInMilliseconds = 200; //0,2 second
+const mainTitle = document.querySelector('.main-title');
 
 
 // Toggle 
@@ -29,26 +30,34 @@ toggleButton.addEventListener('click', toggle);
 const changeBackgroundColorToPurple = () => {
     document.body.classList.add('is-purple');
     document.body.classList.remove('is-blue');
-    document.body.classList.remove('is-pink');
+    document.body.classList.remove('is-green');
+
+    mainTitle.innerHTML = 'Purple';
 }
+
 buttonToPurple.addEventListener('click', changeBackgroundColorToPurple);
+
 
 const changeBackgroundColorToBlue = () => {
     document.body.classList.add('is-blue');
-    document.body.classList.remove('is-pink');
+    document.body.classList.remove('is-green');
     document.body.classList.remove('is-purple');
+
+    mainTitle.innerHTML = 'Blue';
 }
 buttonToBlue.addEventListener('click', changeBackgroundColorToBlue);
 
-const changeBackgroundColorToPink = () => {
-    document.body.classList.add('is-pink');
+const changeBackgroundColorToGreen = () => {
+    document.body.classList.add('is-green');
     document.body.classList.remove('is-purple');
     document.body.classList.remove('is-blue');
+
+    mainTitle.innerHTML = 'Green';
 }
-buttonToPink.addEventListener('click', changeBackgroundColorToPink);
+buttonToGreen.addEventListener('click', changeBackgroundColorToGreen);
 
 // Close menu when clicked on Body
-document.addEventListener('click', function(event) {
+document.addEventListener('click', (event) => {
     if (event.target.closest('.navbar') || event.target.closest('#toggle')) {
         return;
     } else {
@@ -58,19 +67,22 @@ document.addEventListener('click', function(event) {
     }
 });
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', (event) => {
     if (event.target.closest('.btn')) {
-        console.log('button thingy');
         toggleNavbar.classList.add('hide');
         toggleNavbar.classList.remove('is-active');
         toggleButton.classList.remove('is-active');
     }
 });
 
-
-
-// Close menu when clicked on a color
-// const closeMenuOnColorClick = () => {
-//     buttons.node.parentNode.classList.remove('is-active');
-// }
-// buttons.addEventListener('click', closeMenuOnColorClick);
+// Key events
+window.addEventListener('keydown', (e) => {
+    console.log(e.key);
+    if (e.key == 'p' || e.key == 'P') {
+        changeBackgroundColorToPurple();
+    } else if (e.key == 'b' || e.key == 'B') {
+        changeBackgroundColorToBlue();
+    } else if (e.key == 'g' || e.key == 'G') {
+        changeBackgroundColorToGreen();
+    }
+});
